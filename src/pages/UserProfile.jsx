@@ -17,7 +17,7 @@ import "./UserProfile.css";
  *   Accepts multipart/form-data for image; form fields for other values.
  */
 
-const apiBase = "http://127.0.0.1:8000";
+const apiBase = `https://agri-backend-3o3e.onrender.com`;
 
 const fieldToApiKey = {
   firstName: "first_name",

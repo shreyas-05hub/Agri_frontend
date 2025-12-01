@@ -48,7 +48,7 @@ const FarmerDashboard = () => {
     const fetchBackendCrops = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:8000/crops/all/");
+        const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -136,7 +136,7 @@ const mapToBackendStatus = (frontendStatus) => {
   // Update crop status in backend
   const updateBackendCropStatus = async (cropId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8000/crops/${cropId}/update-status/`, {
+      const response = await fetch(`https://agri-backend-3o3e.onrender.com/crops/${cropId}/update-status/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ const mapToBackendStatus = (frontendStatus) => {
       try {
         await updateBackendCropStatus(cropId, "FarmerAccepted");
         // Refresh backend crops
-        const response = await fetch("http://localhost:8000/crops/all/");
+        const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
         const data = await response.json();
         if (data && data.crops) {
           const transformed = data.crops.map(crop => ({
@@ -340,7 +340,7 @@ const mapToBackendStatus = (frontendStatus) => {
       try {
         await updateBackendCropStatus(cropId, "Rejected");
         // Refresh backend crops
-        const response = await fetch("http://localhost:8000/crops/all/");
+        const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
         const data = await response.json();
         if (data && data.crops) {
           const transformed = data.crops.map(crop => ({
@@ -376,7 +376,7 @@ const mapToBackendStatus = (frontendStatus) => {
       try {
         await updateBackendCropStatus(cropId, "AdminApproved");
         // Refresh backend crops
-        const response = await fetch("http://localhost:8000/crops/all/");
+        const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
         const data = await response.json();
         if (data && data.crops) {
           const transformed = data.crops.map(crop => ({
@@ -411,7 +411,7 @@ const mapToBackendStatus = (frontendStatus) => {
       try {
         await updateBackendCropStatus(cropId, "Rejected");
         // Refresh backend crops
-        const response = await fetch("http://localhost:8000/crops/all/");
+        const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
         const data = await response.json();
         if (data && data.crops) {
           const transformed = data.crops.map(crop => ({
@@ -452,7 +452,7 @@ const mapToBackendStatus = (frontendStatus) => {
       return firstImg.image_url;
     }
     if (typeof firstImg === "string") {
-      const backendBase = "http://127.0.0.1:8000";
+      const backendBase = "https://agri-backend-3o3e.onrender.com";
       if (firstImg.startsWith("crop_images/")) {
         return `${backendBase}/media/${firstImg}`;
       }

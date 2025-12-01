@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   // Fetch users from backend
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/users/")
+      .get("https://agri-backend-3o3e.onrender.com/api/users/")
       .then((res) => {
         // Filter only farmers + endusers (exclude admin)
         const filtered = res.data.filter(
@@ -23,7 +23,7 @@ const AdminDashboard = () => {
   // Delete user
   const removeUser = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/users/${id}/`)
+      .delete(`https://agri-backend-3o3e.onrender.com/api/users/${id}/`)
       .then(() => {
         const updated = users.filter((u) => u.id !== id);
         setUsers(updated);
@@ -60,7 +60,7 @@ const AdminDashboard = () => {
 
               <div className="col-md-4 col-sm-12 mb-3">
                 <div className="card stat-card">
-                  <h5>Total Traders</h5>
+                  <h5>Total Users</h5>
                   <p>{totalTraders}</p>
                 </div>
               </div>

@@ -1918,7 +1918,7 @@ const MarketManagement = () => {
   // Fetch crops from backend
   const fetchBackendCrops = async () => {
     try {
-      const response = await fetch("http://localhost:8000/crops/all/");
+      const response = await fetch("https://agri-backend-3o3e.onrender.com/crops/all/");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -2026,7 +2026,7 @@ const MarketManagement = () => {
   // Update backend crop status
   const updateBackendCropStatus = async (cropId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8000/crops/${cropId}/update-status/`, {
+      const response = await fetch(`https://agri-backend-3o3e.onrender.com/${cropId}/update-status/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -2166,7 +2166,7 @@ const handleProductSubmit = async (e) => {
 
       console.log('Uploading images...', uploadedImages.length);
       
-      const uploadResponse = await fetch('http://localhost:8000/api/upload-images/', {
+      const uploadResponse = await fetch('https://agri-backend-3o3e.onrender.com/api/upload-images/', {
         method: 'POST',
         body: uploadFormData,
         // Don't set Content-Type header for FormData - browser will set it automatically with boundary
@@ -2180,7 +2180,7 @@ const handleProductSubmit = async (e) => {
         
         if (uploadResult.success && uploadResult.image_urls) {
           // Convert relative URLs to absolute URLs
-          imageUrls = uploadResult.image_urls.map(url => `http://localhost:8000${url}`);
+          imageUrls = uploadResult.image_urls.map(url => `https://agri-backend-3o3e.onrender.com${url}`);
           console.log('Processed image URLs:', imageUrls);
         } else {
           throw new Error(uploadResult.error || 'Image upload failed');

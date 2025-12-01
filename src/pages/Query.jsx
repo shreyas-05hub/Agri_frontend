@@ -5,7 +5,7 @@ const Query = () => {
   const [queries, setQueries] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/get-all-queries/")
+    fetch("https://agri-backend-3o3e.onrender.com/get-all-queries/")
       .then((res) => res.json())
       .then((data) => setQueries(data.queries || []))
       .catch((err) => console.log("Error fetching queries:", err));

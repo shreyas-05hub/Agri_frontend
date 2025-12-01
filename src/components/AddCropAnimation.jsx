@@ -48,7 +48,7 @@ const AddCropAnimation = ({
   onClose,
   onAddCrop,
   callMlModel, // Local fallback from parent
-  apiBase = "http://127.0.0.1:8000",
+  apiBase = `https://agri-backend-3o3e.onrender.com`,
   farmerId = null,
 }) => {
   const [phase, setPhase] = useState("form"); // form | uploading | processing | results
