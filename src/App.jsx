@@ -20,7 +20,6 @@ import Reports from './pages/Reports'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminDashboard from './components/AdminDashboard'
 import FarmerDashboard from './components/FarmerDashboard'
-// import UserDashboard from './components/UserDashboard'
 import Orders from './pages/Orders';
 import Query from './pages/Query';
 import "./styles/style.css"
@@ -70,10 +69,6 @@ const App = () => {
             <ProtectedRoute role="farmer">
               <FarmerDashboard />
             </ProtectedRoute>}/>
-        {/* <Route path="/user-dashboard" element={
-            <ProtectedRoute role="enduser">
-              <UserDashboard />
-            </ProtectedRoute>}/> */}
         <Route path="/admin-dashboard" element={
             <ProtectedRoute role="admin">
               <AdminDashboard />

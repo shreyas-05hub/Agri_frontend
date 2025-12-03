@@ -5,7 +5,6 @@ const Authentication = () => {
   return (
     <div>
       <Login />
-      {/* <Signup /> */}
     </div>
   )
 }

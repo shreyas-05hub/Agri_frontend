@@ -14,11 +14,11 @@ export const AuthProvider = ({ children }) => {
   }, [user]);
 
   const login = (userData) => {
-    setUser(userData);  // 🔥 instantly updates UI
+    setUser(userData);
   };
 
   const logout = () => {
-    setUser(null); // 🔥 instantly clears UI
+    setUser(null);
     localStorage.removeItem("user");
   };
 

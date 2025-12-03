@@ -174,9 +174,6 @@ const Marketplace = () => {
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
-
-    // Optional: Show success feedback
-    // alert(`${product.name} added to cart!`);
   };
   const updateQuantity = (id, quantity) => {
     if (quantity < 1) {
@@ -289,56 +286,6 @@ const Marketplace = () => {
     setCart([]);
     setShowCart(false);
   };
-  // Render product image - handles both emoji and URL, prioritizes images array
-  // In your Marketplace component, update the renderProductImage function:
-  // const renderProductImage = (product) => {
-  //   // Use images array first, then fallback to image_url, then emoji
-  //   if (product.images && product.images.length > 0) {
-  //     return (
-  //       <img
-  //         src={product.images[0]}
-  //         alt={product.name}
-  //         className="product-image"
-  //         onError={(e) => {
-  //           // If image fails to load, try next image in the array
-  //           const currentSrc = e.target.src;
-  //           const currentIndex = product.images.findIndex(
-  //             (img) => img === currentSrc
-  //           );
-  //           const nextIndex = currentIndex + 1;
-
-  //           if (nextIndex < product.images.length) {
-  //             e.target.src = product.images[nextIndex];
-  //           } else {
-  //             // If no more images, show fallback
-  //             e.target.style.display = "none";
-  //             if (e.target.nextSibling) {
-  //               e.target.nextSibling.style.display = "block";
-  //             }
-  //           }
-  //         }}
-  //       />
-  //     );
-  //   }
-
-  //   if (product.image_url) {
-  //     return (
-  //       <img
-  //         src={product.image_url}
-  //         alt={product.name}
-  //         className="product-image"
-  //         onError={(e) => {
-  //           e.target.style.display = "none";
-  //           if (e.target.nextSibling) {
-  //             e.target.nextSibling.style.display = "block";
-  //           }
-  //         }}
-  //       />
-  //     );
-  //   }
-
-  //   return <span className="product-emoji">{product.image || "🌾"}</span>;
-  // };
 
   // 1. IMPROVED renderProductImage (returns JSX properly with fallback)
   const renderProductImage = (
@@ -749,12 +696,6 @@ const Marketplace = () => {
                       <div key={product.id} className="col-6 col-md-4 col-lg-4">
                         <div className="card h-100 border-0 custom-shadow custom-shadow-hover">
                           <div className="position-relative">
-                            {/* <div className="product-img-wrapper">
-                              {renderProductImage(product)}
-                              {product.organic && (
-                                <div className="organic-badge">🌿 ORGANIC</div>
-                              )}
-                            </div> */}
                             <div className="product-img-wrapper">
                               {renderProductImage(product)}
                               {/* Hidden fallback emoji */}
@@ -895,16 +836,6 @@ const Marketplace = () => {
                 <div key={item.id} className="card mb-3 border">
                   <div className="card-body">
                     <div className="d-flex gap-3">
-                      {/* <div className="cart-item-image">
-                        {item.images && item.images.length > 0 ? (
-                          <img src={item.images[0]} alt={item.name} />
-                        ) : item.image_url ? (
-                          <img src={item.image_url} alt={item.name} />
-                        ) : (
-                          <span>{item.image}</span>
-                        )}
-                      </div> */}
-
                       <div className="cart-item-image">
                         {item.images && item.images.length > 0 ? (
                           <img src={item.images[0]} alt={item.name} />
